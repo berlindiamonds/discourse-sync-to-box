@@ -1,0 +1,5 @@
+en:
+  site_settings:
+    discourse_sync_to_box_enabled: "Enable the Box backups plugin. After enabling this, it will work on your next backup"
+    discourse_sync_to_box_quantity: "How many backups will be kept in Box"
+    discourse_sync_to_box_api_key: "Your Box Generated Access Token"

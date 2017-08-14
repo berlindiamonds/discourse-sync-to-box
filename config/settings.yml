@@ -1,0 +1,7 @@
+plugins:
+  discourse_sync_to_box_enabled:
+    default: false
+  discourse_sync_to_box_quantity:
+    default: 5
+  discourse_sync_to_box_api_key:
+    default: ''
