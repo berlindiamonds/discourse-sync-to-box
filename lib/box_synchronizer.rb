@@ -16,12 +16,20 @@ module DiscourseBackupToBox
     end
 
     def delete_old_files
+      delete_from_folder
+      delete_from_trash
+    end
+
+    def delete_from_folder
       folder_name = Discourse.current_hostname
       box_folder = box.folder_from_path("/#{folder_name}").id
       box_files = box.folder_items(box_folder).reverse!
       keep = box_files.take(SiteSetting.discourse_sync_to_box_quantity)
       old_files = box_files - keep
       old_files.each {|f| box.delete_file(f)}
+    end
+
+    def delete_from_trash
       box.trash.each do |f|
         if f.name.include? "discourse"
           box.delete_trashed_file(f)
