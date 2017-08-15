@@ -7,7 +7,7 @@
 gem 'httpclient', '2.8.0', {require: false}
 gem 'boxr', '1.4.0'
 
-enabled_site_setting :discourse_sync_to_box
+enabled_site_setting :discourse_sync_to_box_enabled
 
 after_initialize do
   load File.expand_path("../app/jobs/regular/sync_backups_to_box.rb", __FILE__)
