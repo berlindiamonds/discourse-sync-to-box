@@ -1,5 +1,7 @@
 # Discourse Sync to Box
-A Plugin for Discourse that does a backup to your Box account
+A Plugin for Discourse that does a backup to your Box account. 
+
+It creates a folder in your Box app. It uploads only new files & deletes the old ones from Box app. Only the files that include "discourse" word in their name will be deleted permanently from the shared trash.
 
 1. Make sure you have the latest version of Discourse set up properly
 
