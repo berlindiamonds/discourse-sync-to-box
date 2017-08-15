@@ -18,7 +18,7 @@ module DiscourseBackupToBox
     def delete_old_files
       folder_name = Discourse.current_hostname
       box_folder = box.folder_from_path("/#{folder_name}").id
-      box_files = box.folder_items(box_folder)
+      box_files = box.folder_items(box_folder).reverse!
       keep = box_files.take(SiteSetting.discourse_sync_to_box_quantity)
       trash = box_files - keep
       trash.each {|f| box.delete_file(f)}
@@ -38,10 +38,10 @@ module DiscourseBackupToBox
     end
 
     def upload_unique_files(box_folder)
-      box_files = box.folder_items(box_folder)
-      ([backup] - box_files).each do |f|
+      box_files = box.folder_items(box_folder).map(&:name)
+      ([backup].map(&:filename) - box_files).each do |f|
         if f.present?
-          full_path = f.path
+          full_path = backup.path
           box.upload_file(full_path, box_folder)
         end
       end
