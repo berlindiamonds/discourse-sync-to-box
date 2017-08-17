@@ -1,3 +1,4 @@
+require 'rails_helper'
 describe ::DiscourseBackupToBox::BoxSynchronizer do
 
   let(:backup) { Backup.new('backup') }
