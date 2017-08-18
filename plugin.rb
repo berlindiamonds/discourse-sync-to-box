@@ -4,7 +4,7 @@
 # authors: Jen
 # url: https://github.com/berlindiamonds/discourse-sync-to-box
 
-gem 'httpclient', '2.8.0', {require: false}
+gem 'httpclient', '2.8.3', {require: false}
 gem 'boxr', '1.4.0'
 
 enabled_site_setting :discourse_sync_to_box_enabled
