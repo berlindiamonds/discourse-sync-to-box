@@ -54,7 +54,7 @@ module DiscourseBackupToBox
 
     def upload_unique_files(box_folder)
       box_files = box.folder_items(box_folder).map(&:name)
-      ([backup].map(&:filename) - box_files).each do |f|
+      (box_files - [backup].map(&:filename)).each do |f|
         if f.present?
           full_path = backup.path
           box.upload_file(full_path, box_folder)
